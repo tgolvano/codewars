@@ -24,14 +24,14 @@ import numpy as np
 import math
     
 def is_prime(num):    
-    if (num == 2) or (num == 3) or (num == 5) or (num == 7):
+    if (210 % num == 0):  #  210 = 2*3*5*7                            #(num == 2) or (num == 3) or (num == 5) or (num == 7):
         return True
-    if (num == 1) or (num == -1) or (num % 2 == 0) or (num % 3 == 0) or (num % 5 == 0) or (num % 7 == 0):
+    if (num == 1) or (num == -1) or (num % 2 == 0) or (num % 3 == 0) or (num % 5 == 0) or (num % 7 == 0) or ((num + 1) % 6 != 0) and ((num - 1) % 6 != 0):
         return False
 
     i = 1
     sup_limit = math.floor((np.sqrt(abs(num))))
-    while (i <= (1 + sup_limit) / 10):
+    while (i <= sup_limit / 10):
         if (num % ((i * 10) + 1)) == 0:
             return False
         elif (num % ((i * 10) + 3)) == 0:
